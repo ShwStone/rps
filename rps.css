@@ -9,5 +9,8 @@ img {
     height: 177;
 }
 .info {
-    font-size: larger;
+    font-size: xx-large;
+    /* width: 50%; */
+    height: 30%;
+    overflow: auto;
 }

@@ -10,7 +10,7 @@ const clientId = Math.random()
 const actionMap = {
     0: "石头",
     1: "剪刀",
-    2: "布&emsp;"
+    2: "布"
 }
 const resultMap = {
     0: "平局了",
@@ -18,7 +18,7 @@ const resultMap = {
     2: "你输了"
 }
 
-let roundNum = 0, winNum = 0, loseNum = 0
+let roundNum = 0, winNum = 0, loseNum = 0, nieNum = 0
 
 const check = (playerAction, agentAction) => {
     if (playerAction == agentAction) return 0;
@@ -29,13 +29,14 @@ const check = (playerAction, agentAction) => {
 const render = (playerAction, agentAction, result) => {
     roundNum++
     if (result === 1) winNum++
-    if (result === 2) loseNum++
+    else if (result === 2) loseNum++
+    else nieNum++
 
     docStatus.innerHTML = 
-        `第 ${roundNum} 轮：` +
-        `你出了 ${actionMap[playerAction]} ，` +
-        `智能体出了 ${actionMap[agentAction]} 。` +
-        `${resultMap[result]}。 Win/Lose： ${winNum} / ${loseNum}。<br>`
+        `第 ${roundNum} 轮：你出了${actionMap[playerAction]}，<br>` +
+        `智能体出了${actionMap[agentAction]}。<br>` +
+        `${resultMap[result]}。 胜/平/负： ${winNum} / ${nieNum} / ${loseNum}。<br><br>` +
+        docStatus.innerHTML
 }
 
 const action = (playerAction, agentAction) => {
@@ -57,7 +58,7 @@ const round = (playerAction) => {
         method: 'GET',
         headers: {
             "Content-Type": "text/plain",
-	    "x-content-type-options": "nosniff"
+            "x-content-type-options": "nosniff"
         }
     })
     .then((response) => {
@@ -85,7 +86,7 @@ const alive = () => {
         method: 'POST',
         headers: {
             "Content-Type": "text/plain",
-	    "x-content-type-options": "nosniff"
+            "x-content-type-options": "nosniff"
         },
         body: 'alive'
     })
