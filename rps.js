@@ -34,7 +34,7 @@ const render = (playerAction, agentAction, result) => {
 
     docStatus.innerHTML = 
         `第 ${roundNum} 轮：你出了${actionMap[playerAction]}，` +
-        `智能体出了${actionMap[agentAction]}。` +
+        `智能体出了${actionMap[agentAction]}。<br>` +
         `${resultMap[result]}。 胜/负： ${winNum} / ${loseNum}。<br>` +
         docStatus.innerHTML
 }
