@@ -1,0 +1,13 @@
+#content {
+    text-align: center;
+    position: relative;
+    top: 20%;
+}
+img {
+    padding: 20 35 20 35;
+    width: 147;
+    height: 177;
+}
+.info {
+    font-size: larger;
+}
