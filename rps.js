@@ -10,7 +10,7 @@ const clientId = Math.random()
 const actionMap = {
     0: "石头",
     1: "剪刀",
-    2: "布"
+    2: "布&emsp;"
 }
 const resultMap = {
     0: "平局了",
@@ -33,9 +33,9 @@ const render = (playerAction, agentAction, result) => {
     else nieNum++
 
     docStatus.innerHTML = 
-        `第 ${roundNum} 轮：你出了${actionMap[playerAction]}，<br>` +
-        `智能体出了${actionMap[agentAction]}。<br>` +
-        `${resultMap[result]}。 胜/平/负： ${winNum} / ${nieNum} / ${loseNum}。<br><br>` +
+        `第 ${roundNum} 轮：你出了${actionMap[playerAction]}，` +
+        `智能体出了${actionMap[agentAction]}。` +
+        `${resultMap[result]}。 胜/平/负： ${winNum} / ${nieNum} / ${loseNum}。<br>` +
         docStatus.innerHTML
 }
 
